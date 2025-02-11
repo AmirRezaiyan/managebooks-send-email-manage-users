@@ -1,0 +1,20 @@
+<h2>ایمیل‌های زمان‌بندی‌شده</h2>
+<table>
+    <tr>
+        <th>موضوع</th>
+        <th>آدرس ایمیل</th>
+        <th>زمان ارسال</th>
+        <th>عملیات</th>
+    </tr>
+    {% for email in scheduled_emails %}
+        <tr>
+            <td>{{ email.subject }}</td>
+            <td>{{ email.to_email }}</td>
+            <td>{{ email.scheduled_time }}</td>
+            <td>
+                <a href="{% url 'edit_email' email.id %}">ویرایش</a>
+                <a href="{% url 'delete_email' email.id %}">حذف</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>

@@ -1,0 +1,5 @@
+{% for email in emails %}
+    <p>{{ email.subject }} - {{ email.to_email }} - {{ email.scheduled_time }}</p>
+    <a href="{% url 'edit_email' email.id %}">ویرایش</a>
+    <a href="{% url 'delete_email' email.id %}">حذف</a>
+{% endfor %}
